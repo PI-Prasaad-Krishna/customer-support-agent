@@ -1,4 +1,4 @@
-# 🍎 Apple Support AI Pipeline - Final Report
+# Apple Support AI Pipeline - Final Report
 
 ## 1. Problem Framing
 The objective was to build an automated AI pipeline capable of parsing inbound tweets to `@AppleSupport`, classifying their underlying intent, deciding whether human escalation is required, and drafting a personalized, context-aware reply. 
@@ -27,7 +27,7 @@ The Gemini-powered RAG Drafter successfully generalized the historical brand voi
 
 ## 4. Failure Analysis (Top 5 Modes)
 Where does the pipeline break?
-1. **Sarcasm and Implicit Bugs**: The TF-IDF model struggles with sarcasm (e.g., "Great job Apple, another flawless update 🙄"). Because it relies on word counts, it lacks the deep semantic understanding of transformers, misclassifying sarcastic complaints as positive inquiries.
+1. **Sarcasm and Implicit Bugs**: The TF-IDF model struggles with sarcasm (e.g., "Great job Apple, another flawless update"). Because it relies on word counts, it lacks the deep semantic understanding of transformers, misclassifying sarcastic complaints as positive inquiries.
 2. **Contextless Images**: Tweets that simply say "Why is my screen doing this?" with an attached image fail entirely, as the pipeline only processes text.
 3. **Multi-Intent Tweets**: A tweet stating "My battery drains fast AND I was double charged" forces the Logistic Regression model to pick a single dominant intent, meaning the secondary issue is often ignored by the routing logic.
 4. **Colloquial Misspellings**: Highly abbreviated tweets (e.g., "scrn brk plz hlp") bypass the TF-IDF vocabulary, leading to the default `general_inquiry` classification instead of `hardware_repair`.

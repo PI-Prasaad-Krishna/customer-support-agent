@@ -1,10 +1,10 @@
-# 🍎 Apple Support AI Pipeline
+# Apple Support AI Pipeline
 
 An end-to-end Machine Learning & GenAI pipeline that classifies, routes, and automatically drafts replies for inbound customer support tweets directed at `@AppleSupport`.
 
 This project was built to demonstrate full-stack AI Engineering—from messy data extraction and heuristic pseudo-labeling, to training lightweight ML classification models, and finally implementing a FAISS-backed RAG system for LLM drafting.
 
-## 🚀 The Architecture
+## The Architecture
 
 Due to strict rate limits on the free-tier Gemini API (20 requests/day), this project embraces the **"Pragmatic Engineer"** approach. Instead of relying on a massive LLM for every single task, it uses a hybrid system that is blazing fast, cost-effective, and highly scalable:
 
@@ -12,7 +12,7 @@ Due to strict rate limits on the free-tier Gemini API (20 requests/day), this pr
 2. **Context Retrieval (RAG)**: Handled locally by a **FAISS (Nearest Neighbors)** vector index. It instantly searches 50,000 historical Apple Support conversations to find how human agents resolved similar issues.
 3. **Response Drafting**: Only the final response generation calls the **Gemini 2.5 Flash API**. The LLM is provided the predicted intent, escalation decision, and the top 2 historical context pairs retrieved by FAISS to draft a perfectly grounded, brand-safe reply.
 
-## 🛠️ Setup & Installation
+## Setup & Installation
 
 ### 1. Clone the repository and install dependencies
 ```bash
@@ -34,7 +34,7 @@ This script will train the ML classifiers and build the RAG index from the local
 python src/build_models.py
 ```
 
-## 🧪 Running the Interactive Demo (Phase 5)
+## Running the Interactive Demo (Phase 5)
 
 Want to see the pipeline in action? Run the interactive CLI app! 
 It allows you to type in mock customer tweets and watch the pipeline classify the intent, retrieve historical context, and draft a personalized reply in real-time.
@@ -43,7 +43,7 @@ It allows you to type in mock customer tweets and watch the pipeline classify th
 python src/demo.py
 ```
 
-## 📊 Evaluation (Phase 4)
+## Evaluation (Phase 4)
 
 To run the evaluation harness against the hand-crafted Golden Dataset:
 ```bash
