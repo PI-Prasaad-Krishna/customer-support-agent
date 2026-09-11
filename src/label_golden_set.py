@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 print("Loading pairs...")
 df = pd.read_csv('data/apple_support_pairs.csv')

@@ -1,10 +1,8 @@
 pandas
 numpy
-google-generativeai
+google-genai
 faiss-cpu
 scikit-learn
-streamlit
-jupyter
 tqdm
 datasets
 python-dotenv

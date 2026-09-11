@@ -1,11 +1,9 @@
 import pandas as pd
-import numpy as np
 import joblib
 import os
 import time
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score
 from google import genai
-from google.genai import types
 from dotenv import load_dotenv
 
 load_dotenv()
